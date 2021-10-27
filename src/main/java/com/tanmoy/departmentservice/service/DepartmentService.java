@@ -1,5 +1,7 @@
 package com.tanmoy.departmentservice.service;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import com.tanmoy.departmentservice.domain.Department;
@@ -16,6 +18,19 @@ public class DepartmentService {
 	
 	public Department findDepartmentById(int id) {
 		return deptRepo.findById(id);
+	}
+	
+	public boolean saveDepartment(@Valid Department dept) {
+		try {
+			if (findDepartmentById(dept.getId()) == null) {
+				deptRepo.save(dept);
+				return true;
+			}
+			return false;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
 	}
 
 }
