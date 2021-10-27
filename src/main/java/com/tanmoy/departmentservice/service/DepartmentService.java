@@ -32,5 +32,18 @@ public class DepartmentService {
 			return false;
 		}
 	}
+	
+	public boolean updateDepartment(@Valid Department dept) {
+		try {
+			if (findDepartmentById(dept.getId()) != null) {
+				deptRepo.save(dept);
+				return true;
+			}
+			return false;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+	}
 
 }
