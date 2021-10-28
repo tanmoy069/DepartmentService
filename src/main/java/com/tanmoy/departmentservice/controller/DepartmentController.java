@@ -36,5 +36,10 @@ public class DepartmentController {
 	public boolean saveDepartment(@RequestBody Department dept) {
 		return deptService.saveDepartment(dept);
 	}
+	
+	@PostMapping("/update")
+	public boolean updateDepartment(@RequestBody Department dept) {
+		return deptService.updateDepartment(dept);
+	}
 
 }
