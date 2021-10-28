@@ -1,5 +1,7 @@
 package com.tanmoy.departmentservice.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +20,10 @@ public class DepartmentService {
 	
 	public Department findDepartmentById(int id) {
 		return deptRepo.findById(id);
+	}
+	
+	public List<Department> findAll() {
+		return deptRepo.findAll();
 	}
 	
 	public boolean saveDepartment(@Valid Department dept) {
